@@ -23,5 +23,5 @@ public class Word implements Iterable<Character> {
     public Iterator<Character> iterator() {
         return word.iterator();
     }
-    
+
 }
