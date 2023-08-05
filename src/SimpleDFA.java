@@ -9,6 +9,9 @@ public class SimpleDFA implements DFA {
 
     @Override
     public boolean check(Word word) {
+        if (!isValidWord(word)) {
+            throw new IllegalArgumentException("Word is not valid");
+        }
         State currentState = start;
         int index = 0;
         for (Character c : word) {
@@ -21,6 +24,18 @@ public class SimpleDFA implements DFA {
         // if execution gets here, something has gone wrong so return false;
         return false;
     }
+
+    private boolean isValidWord(Word word) {
+        for (Character c : word) {
+            if (!alphabet.contains(c)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+
+
 
     public static SimpleDFA create(DFASchema schema) {
         return new SimpleDFA(schema);
