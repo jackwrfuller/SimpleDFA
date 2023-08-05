@@ -24,4 +24,8 @@ public class Word implements Iterable<Character> {
         return word.iterator();
     }
 
+    public int length() {
+        return word.size();
+    }
+
 }
